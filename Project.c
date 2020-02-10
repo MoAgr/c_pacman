@@ -3,7 +3,6 @@
 #include<stdlib.h>
 #include<windows.h>
 #include<stdbool.h>
-	
 	int height=20;
 	int width=50;
 	bool gameover;
@@ -11,7 +10,7 @@
 	enum eDirection{STOP=0, LEFT,RIGHT,UP,DOWN};
 	enum eDirection dir;
 	
-			
+	
 	void Setup(){
 		gameover=false;
 		dir=STOP;
@@ -80,21 +79,25 @@
 	}
 	
 	void Logic(){
-		switch(dir){
-			case LEFT:
-				x--;
-				break;
-			case RIGHT:
-				x++;
-				break;
-			case UP:
-				y--;
-				break;
-			case DOWN:
-				y++;
-				break;
-		}
-		
+	
+			switch(dir){
+				case LEFT:
+					x--;
+					break;
+				case RIGHT:
+					x++;
+					break;
+				case UP:
+					y--;
+					break;
+				case DOWN:
+					y++;
+					break;
+			}
+		if(x>width) x=width-2;
+		if(y>height) y=height-1;
+		if(x<0) x=1;
+		if(y<0)y=0;
 	}
 	int main(){
 		Setup();
@@ -103,5 +106,7 @@
 			Input();
 			Logic();
 		}
+		if(score==300) printf("Congrats You won");
+		else printf("Too bad.... try again");
 		return 0;
 	}
