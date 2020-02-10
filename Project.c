@@ -106,8 +106,9 @@
 			Draw();
 			Input();
 			Logic();
+			Sleep(50);
 		}
-		if(score==300) printf("Congrats You won");
+		if(score==300) printf("Congrats You won");                  //score not implemented.....yet
 		else printf("Too bad.... try again");
 		return 0;
 	}
